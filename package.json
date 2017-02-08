@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/slinkais/app/issues"
   },
-  "homepage": "https://github.com/slinkais/app#readme"
+  "homepage": "https://github.com/slinkais/app#readme",
+  "devDependencies": {
+    "react": "^15.4.2"
+  }
 }
