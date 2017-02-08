@@ -8,13 +8,44 @@ bot.create(function(err, session) {
     // Woo, you initialized cleverbot.io.  Insert further code here
 });
 
+var botName = "Peter";
+
 var ask = function(message) {
     bot.ask(message, function(err, response) {
-        console.log(response); // Will likely be: "Living in a lonely world"
-        document.getElementById("demo").innerHTML += 'Cleverbot: ' + response + '</br>';
-        var chat = $('#chatbox');
-        chat.scrollTop(chat.prop('scrollHeight'));
+        displayResponse(response);
+        if(botName == "James"){
+          botName = "Peter";
+          ask(response);
+        } else {
+          botName = "James";
+          ask(response);
+           askOther(response);
+        }
     });
+}
+
+var askOther = function(message) {
+  $.post('http://api.program-o.com/v2/chatbot/',
+    {bot_id: '6', say: message, convo_id: '69', format: 'json'},
+    function(data) {
+      displayResponse(data);
+      if(botName == "James"){
+        botName = "Peter";
+        ask(data);
+      } else {
+        botName = "James";
+        askOther(data);
+      }
+    });
+}
+
+
+
+function displayResponse(response){
+  console.log(response); // Will likely be: "Living in a lonely world"
+  document.getElementById("demo").innerHTML += botName +': ' + response + '</br>';
+  var chat = $('#chatbox');
+  chat.scrollTop(chat.prop('scrollHeight'));
 }
 
 $("#submitmsg").click(function() {
