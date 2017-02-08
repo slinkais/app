@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "description": "my app",
+  "main": "myapp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slinkais/app.git"
+  },
+  "author": "Kurts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slinkais/app/issues"
+  },
+  "homepage": "https://github.com/slinkais/app#readme"
+}
