@@ -19,7 +19,7 @@ var ask = function(message) {
         } else {
           botName = "James";
           ask(response);
-          // askOther(response);
+           askOther(response);
         }
     });
 }
